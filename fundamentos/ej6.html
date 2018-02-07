@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejm 6</title>
+</head>
+<body>
+
+	<script>
+		// SÍ o NO
+
+		// FOR INVOCA A 1 FUNC PARA QUE EJECUTE SENTENCIAS
+		/*for (var i=1; i<=10; ++i) {
+			printDecision();
+		}*/
+
+		function printDecision() {
+			var randomNumber = Math.random();
+			if (randomNumber <= 0.5) {
+				console.log('SÍ');
+			} else {
+				console.log('NO');
+			}
+		}
+		// console.log(printDecision());
+		printDecision();
+
+		// FOR USA 1 FUNC PARA OBTENER UN VALOR EN PARTICULAR
+		/*for (var i=1; i<=10; ++i) {
+			var decision = getDecision();
+			console.log(i + ' ' + decision);
+		}*/
+
+		function getDecision() {
+			var randomNumber = Math.random();
+			if (randomNumber <= 0.5) {
+				return 'SÍ';
+			} else {
+				return 'NO';
+			}
+		}
+		console.log(getDecision());
+		// getDecision();
+		// console.log(6);
+	</script>
+</body>
+</html>

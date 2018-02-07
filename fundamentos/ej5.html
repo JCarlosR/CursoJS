@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejm 6</title>
+</head>
+<body>
+
+	<script>
+		// SÍ o NO
+		var randomNumber;
+
+		// FOR
+		for (var i=1; i<=10; ++i) {
+			randomNumber = Math.random();
+			if (randomNumber <= 0.5) {
+				console.log(i + ' SÍ');
+			} else {
+				console.log(i + ' NO');
+			}
+		}
+
+		// WHILE
+		// 1
+		// 1+1       2
+		// 2+2       4
+		// 4+4       8
+		// 100
+		var x = 1;
+		while (x < 100) {
+			console.log(x);
+			x = x+x; // x * 2
+		}
+	</script>
+</body>
+</html>

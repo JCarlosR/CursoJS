@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejm 7</title>
+</head>
+<body>
+
+	<script>
+		var randomNumber = 777; // variable global
+
+		function printDecision() {
+			var randomNumber = Math.random(); // variable local
+			if (randomNumber <= 0.5) {
+				console.log('SÍ');
+			} else {
+				console.log('NO');
+			}
+		}
+		printDecision();
+		printDecision();
+
+		function getDecision() {
+			var randomNumber = Math.random(); // variable local
+			if (randomNumber <= 0.5) {
+				return 'SÍ';
+			} else {
+				return 'NO';
+			}
+		}
+
+		console.log(randomNumber);
+	</script>
+</body>
+</html>
