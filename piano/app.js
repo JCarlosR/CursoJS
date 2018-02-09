@@ -1,11 +1,17 @@
 // asignar un evento a un elemento
 // add event listener
-var btnDO = document.getElementById('btnDO');
 
-btnDO.addEventListener('click', playSound);
+var buttons = document.querySelectorAll('button');
 
-function playSound() {
-	var audio = document.getElementById('audioDO');
+buttons.forEach(function (button) {
+	button.addEventListener('click', playSound);	
+});
+
+function playSound(event) {
+	var button = event.target;
+	var note = button.dataset.note;
+
+	var audio = document.getElementById('audio'+note);
 	audio.pause();
 	audio.currentTime = 0;
 	audio.play();
