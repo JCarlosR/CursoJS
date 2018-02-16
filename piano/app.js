@@ -1,18 +1,27 @@
 // asignar un evento a un elemento
 // add event listener
 
-var buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('button');
 
-buttons.forEach(function (button) {
-	button.addEventListener('click', playSound);	
-});
+buttons.forEach(
+	button => button.addEventListener('click', playSound)
+);
 
 function playSound(event) {
-	var button = event.target;
-	var note = button.dataset.note;
+	const button = event.target;
+	const note = button.dataset.note;
 
-	var audio = document.getElementById('audio'+note);
+	const audio = document.getElementById(`audio${note}`);
 	audio.pause();
 	audio.currentTime = 0;
 	audio.play();
 }
+
+// keydown
+document.addEventListener('keydown', event => {
+	const key = event.key;
+	const button = document.querySelector(`button[data-key="${key}"]`);
+	
+	if (button)
+		button.click(); // trigger
+});
