@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos predefinidos (incorporados en el lenguaje)</title>
+</head>
+<body>
+	
+	<script>
+		// string -> String
+		var x = 'Aprendiendo Javascript. Javascript es un lenguaje muy poderoso.';
+		console.log(x.length);
+		// console.log(x.toUpperCase());
+		// console.log(x.toLowerCase());
+		// x = x.toUpperCase();
+		var i = x.lastIndexOf('Javascript');
+		console.log(x.slice(i));
+		console.log(x.replace(/Javascript/g, 'JS'));
+
+		var personas = [
+			'Juan',
+			'María',
+			'Carlos'
+		];
+		console.log(personas.length);
+		console.log(personas.join(' - '));
+
+		var oraciones = x.split('. ');
+		console.log(oraciones);
+	</script>
+</body>
+</html>

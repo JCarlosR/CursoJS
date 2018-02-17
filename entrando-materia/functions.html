@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Funciones (Functions)</title>
+</head>
+<body>
+	
+	<script>
+		// function declaration
+		var c = sum(5, 7); // se aplica hoisting
+		function sum(a, b) {
+			return a + b;
+		}
+		console.log(c);
+
+		// function expression
+		// var d = mult(5, 7); // no se aplica hoisting 
+		// un error dirá que no se ha definido la función mul
+		var mult = function (a, b) {
+			return a * b;
+		}
+		// console.log(d);
+
+		var player = {
+			name: 'Juan',
+			sayHi: function () {
+				console.log(`Hola, mi nombre es ${this.name}.`);
+			}
+		}; // método: func que forma parte de 1 objeto
+		player.sayHi();
+	</script>
+</body>
+</html>
