@@ -3,11 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Piedra, papel y/o tijeras</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
 	<section id="game-zone">
-		<img src="images/paper.png" alt="Elección del jugador">
-		<img src="images/rock.png" alt="Elección del computador">
+		<figure>
+			<figcaption>Jugador</figcaption>
+			<img id="playerChoice" src="images/rock.png" alt="Elección del jugador">	
+		</figure>
+		
+		<figure>
+			<figcaption>Computadora</figcaption>
+			<img id="computerChoice" src="images/rock.png" alt="Elección del computador">	
+		</figure>
 	</section>
 	<p id="result">
 		Tú ganas escogiendo <strong>tijeras</strong>
@@ -17,7 +26,9 @@
 		Has ganado <strong>5</strong> veces.
 		Has perdido <strong>4</strong> veces.
 	</p>
+
 	<section>
+		<p>Escoge una opción:</p>
 		<button>
 			<img src="images/rock.png" alt="Jugar usando piedra">
 		</button>
