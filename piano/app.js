@@ -8,7 +8,7 @@ buttons.forEach(
 );
 
 function playSound(event) {
-	const button = event.target;
+	const button = event.target; // event.target.dataset.note;
 	const note = button.dataset.note;
 
 	const audio = document.getElementById(`audio${note}`);

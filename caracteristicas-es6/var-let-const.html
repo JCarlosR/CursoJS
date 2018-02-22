@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Diferencias entre var, let y const</title>
+</head>
+<body>
+	
+	<script>
+		// var, let
+		
+		// var: scope a nv de función -> global
+		// let: scope a nv de bloque
+		if (3 < 5) {
+			let y = 7;
+		}
+		// console.log(y); // y no se ha definido
+
+		// var -> hoisting
+		// let -> NO hoisting
+		console.log(z);
+		let z; // undefined si se usa var; ReferenceError si se usa let
+
+		
+		// const: referencias constantes, NO se refiere a inmutable
+		const x = { // buena práctica: 1 variable debe usarse con 1 único propósito
+			a: 5,
+			b: 10
+		};
+		x.a = 15;
+		// x = 6; // no es posible
+		// x = {}; // no es posible
+		console.log(x);
+
+		// var PI = 3.14159; // antes de ES6 (ES5)
+		// const xyz = func3(func2(func1(), true) + 1);
+	</script>
+</body>
+</html>
