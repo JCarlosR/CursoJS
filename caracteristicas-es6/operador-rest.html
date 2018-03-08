@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Rest operator</title>
+</head>
+<body>
+<script>
+/*function sumar(texto) { // es5
+	// arguments.slice(1)
+	const valores = [].slice.apply(arguments, [1]);
+
+	let resultado = 0;
+	valores.forEach(
+		valor => resultado += valor
+	);
+	console.log(`${texto}: ${resultado}`);
+}*/
+function sumar(texto, ...valores) { // es6
+	let resultado = 0;
+	valores.forEach(
+		valor => resultado += valor
+	);
+	console.log(`${texto}: ${resultado}`);
+}
+
+sumar('La suma total es', 10, 5, 5);
+</script>
+</body>
+</html>

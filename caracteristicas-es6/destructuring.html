@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Asignación por destructuring (desestructuración)</title>
+</head>
+<body>
+<script>
+const p1 = [10, 5, 5];
+/*let x = p1[0];
+let y = p1[1];
+let z = p1[2];*/
+const [x, y, z] = p1;
+console.log(x);
+console.log(y);
+console.log(z);
+
+/*const p2 = [20, 30, 50, 60, 90, -56];
+let [x1, y1, z1, ...otras] = p2;
+console.log(`x: ${x1}, y: ${y1}, z: ${z1}`);
+console.log(otras);*/
+
+/*let a, b, c, d;
+[, b, c, d=100] = [7, 8, 10];
+console.log(`a: ${a} - b: ${b} - c: ${c} - d: ${d}`);*/
+
+// Con objetos
+// let {a, b} = { a: 10, b: 20 };
+// console.log(a+b);
+
+const punto = {x: 10, y: 100};
+function imprimirPunto({x: coordX, y: coordY}) {
+	console.log(`x: ${coordX}, y: ${coordY}`);
+}
+imprimirPunto(punto);
+
+let abc = 5;
+let def = 10;
+[abc, def] = [def, abc];
+/*const aux = abc;
+abc = def;
+def = aux;*/
+console.log(`abc: ${abc}`);
+console.log(`def: ${def}`);
+
+</script>
+</body>
+</html>

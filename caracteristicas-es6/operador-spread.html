@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Spread operator</title>
+</head>
+<body>
+<script>
+function sumar(texto, ...valores) {
+	let resultado = 0;
+	valores.forEach(
+		valor => resultado += valor
+	);
+	console.log(`${texto}: ${resultado}`);
+}
+
+const numeros = [10, 5, 5, 10];
+const deuda = 100;
+const argumentos = [...numeros, deuda]; // spread para asignar elementos a 1 arreglo
+
+// es6
+sumar('La suma total es', ...argumentos); // spread para enviar varios argumentos desde 1 arreglo
+
+// es5
+// numeros.unshift('La suma total es');
+// sumar.apply(null, numeros);
+</script>
+</body>
+</html>

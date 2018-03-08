@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Tagged template literals</title>
+</head>
+<body>
+<script>
+function saludar(parts, val1, val2) {
+	console.log(parts);
+	console.log(val1);
+	console.log(val2);
+}
+
+const nombre = 'Juan';
+saludar`Hola ${nombre}. Tu puntaje es ${5*2}.`;
+</script>
+</body>
+</html>

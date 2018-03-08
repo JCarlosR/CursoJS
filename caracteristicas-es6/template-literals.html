@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Template literals</title>
+</head>
+<body>
+<script>
+const x = 'Juan';
+const y = 5;
+const z = `Hola ${x}. 
+Tu puntaje es ${y*2}.`;
+console.log(z);
+
+// antes de ES6
+const a = 'Hola ' + x + '.' + 
+'\nTu puntaje es ' + (y*2) +'.';
+console.log(a);		
+</script>
+</body>
+</html>
