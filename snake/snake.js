@@ -1,7 +1,24 @@
 const myCanvas = document.getElementById('myCanvas');
 const context = myCanvas.getContext('2d');
 
-context.fillRect(0, 0, 20, 20);
+const SIZE = 20;
+
+const cuadrado = {
+	x: 0,
+	y: 0
+};
+
+setInterval(draw, 1000); // 1000ms = 1s
+
+function draw() {
+	drawObject(cuadrado);
+	cuadrado.x += SIZE;
+}
+
+
+function drawObject(obj) {
+	context.fillRect(obj.x, obj.y, SIZE, SIZE);
+}
 
 document.addEventListener('keydown', moveSnake);
 
