@@ -11,7 +11,7 @@ let food = null; // x: y:
 let dx = 0;
 let dy = 0;
 
-setInterval(main, 1000); // 1000ms = 1s
+setInterval(main, 200); // 1000ms = 1s
 
 function main() {
 	update(); // actualizar las variables del juego
@@ -19,6 +19,8 @@ function main() {
 }
 
 function update() {
+	checkSnakeCollission();
+
 	// salvar la posición previa del último elemento de la serpiente
 	let prevX, prevY;
 	if (body.length >= 1) {
@@ -54,6 +56,15 @@ function update() {
 	// generar el alimente en caso que no exista
 	if (!food) {
 		food = { x: getRandomX(), y: getRandomY() };
+	}
+}
+
+function checkSnakeCollission() {
+	// coordenadas de la cabeza sean igual a las coordenadas de un elem del cuerpo
+	for (let i=0; i<body.length; ++i) {
+		if (head.x == body[i].x && head.y == body[i].y) {
+			alert('Has perdido');
+		}
 	}
 }
 
