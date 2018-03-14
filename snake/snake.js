@@ -4,6 +4,8 @@ const context = myCanvas.getContext('2d');
 const SIZE = 20;
 
 const head = { x: 0, y: 0 };
+const body = [];
+
 let food = null; // x: y:
 
 let dx = 0;
@@ -17,6 +19,26 @@ function main() {
 }
 
 function update() {
+	// salvar la posición previa del último elemento de la serpiente
+	let prevX, prevY;
+	if (body.length >= 1) {
+		prevX = body[body.length-1].x;
+		prevY = body[body.length-1].y;
+	} else {
+		prevX = head.x;
+		prevY = head.y;
+	}
+
+	// el cuerpo de la serpiente siga a la cabeza de la serpiente
+	for (let i=body.length-1; i>=1; --i) {
+		body[i].x = body[i-1].x; // elem i <- elem i-1
+		body[i].y = body[i-1].y; // body[i] = body[i-1]
+	}
+	if (body.length >= 1) {
+		body[0].x = head.x;
+		body[0].y = head.y;
+	}
+
 	// actualizar las coords de la cabeza de la serpiente
 	head.x += dx;
 	head.y += dy;
@@ -25,6 +47,7 @@ function update() {
 	if (food && head.x === food.x && head.y === food.y) {
 		food = null;
 		// aumentar el tamaño de la serpiente
+		increaseSnakeSize(prevX, prevY);
 	}
 	
 
@@ -32,6 +55,12 @@ function update() {
 	if (!food) {
 		food = { x: getRandomX(), y: getRandomY() };
 	}
+}
+
+function increaseSnakeSize(prevX, prevY) {
+	body.push({
+		x: prevX, y: prevY
+	});
 }
 
 function getRandomX() {
@@ -47,9 +76,17 @@ function getRandomY() {
 }
 
 function draw() {
+	// definir un fondo negro
 	context.fillStyle = 'black';
 	context.fillRect(0, 0, myCanvas.width, myCanvas.height);
+
+	// cabeza
 	drawObject(head, 'lime');
+	// cuerpo
+	body.forEach(
+		elem => drawObject(elem, 'lime')
+	);
+	// alimento
 	drawObject(food, 'white');
 }
 
