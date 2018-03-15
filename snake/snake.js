@@ -19,7 +19,7 @@ function main() {
 }
 
 function update() {
-	checkSnakeCollission();
+	checkSnakeCollision();
 
 	// salvar la posición previa del último elemento de la serpiente
 	let prevX, prevY;
@@ -59,7 +59,7 @@ function update() {
 	}
 }
 
-function checkSnakeCollission() {
+function checkSnakeCollision() {
 	// coordenadas de la cabeza sean igual a las coordenadas de un elem del cuerpo
 	for (let i=0; i<body.length; ++i) {
 		if (head.x == body[i].x && head.y == body[i].y) {
@@ -110,26 +110,35 @@ function drawObject(obj, color) {
 document.addEventListener('keydown', moveSnake);
 
 function moveSnake(event) {
+	// las condiciones restringen el movimiento sobre el mismo eje
 	switch (event.key) {
 		case 'ArrowUp':
-			console.log('Mover hacia arriba');
-			dx = 0;
-			dy = -SIZE;
+			if (dy === 0) {
+				dx = 0;
+				dy = -SIZE;
+				console.log('Mover hacia arriba');
+			}
 			break;
 		case 'ArrowDown':
-			console.log('Mover hacia abajo');
-			dx = 0;
-			dy = +SIZE;
+			if (dy === 0) {
+				dx = 0;
+				dy = +SIZE;
+				console.log('Mover hacia abajo');
+			}
 			break;
 		case 'ArrowRight':
-			console.log('Mover hacia la derecha');
-			dx = +SIZE;
-			dy = 0;
+			if (dx === 0) {
+				dx = +SIZE;
+				dy = 0;
+				console.log('Mover hacia la derecha');
+			}
 			break;
 		case 'ArrowLeft':
-			console.log('Mover hacia la izquierda');
-			dx = -SIZE;	
-			dy = 0;
+			if (dx === 0) {
+				dx = -SIZE;	
+				dy = 0;
+				console.log('Mover hacia la izquierda');			
+			}
 			break;
 	}
 }
