@@ -19,7 +19,11 @@ function main() {
 }
 
 function update() {
-	checkSnakeCollision();
+	const collisionDetected = checkSnakeCollision();
+	if (collisionDetected) {
+		gameOver();
+		return;
+	}
 
 	// salvar la posición previa del último elemento de la serpiente
 	let prevX, prevY;
@@ -63,9 +67,29 @@ function checkSnakeCollision() {
 	// coordenadas de la cabeza sean igual a las coordenadas de un elem del cuerpo
 	for (let i=0; i<body.length; ++i) {
 		if (head.x == body[i].x && head.y == body[i].y) {
-			alert('Has perdido');
+			return true;
 		}
 	}
+
+	// verificar que la serpiente no se salga de los límites permitidos
+	const topCollision = (head.y < 0); // x: ? , y: 0
+	const bottomCollision = (head.y > 440); // x: ?, y: 440
+	const leftCollision = (head.x < 0); // x: 0, y: ?
+	const rightCollision = (head.x > 380); // x: , y: ?
+	if (topCollision || bottomCollision || leftCollision || rightCollision) {
+		return true;
+	}
+
+	return false;
+}
+
+function gameOver() {
+	console.log('gameOver fired');
+	alert('Has perdido');
+	head.x = 0;
+	head.y = 0;
+	dy = 0; dx = 0;
+	body.length = 0;
 }
 
 function increaseSnakeSize(prevX, prevY) {
