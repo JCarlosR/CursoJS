@@ -11,7 +11,9 @@ let food = null; // x: y:
 let dx = 0;
 let dy = 0;
 
-setInterval(main, 200); // 1000ms = 1s
+let lastAxis; // 'Y', 'X'
+
+setInterval(main, 150); // 1000ms = 1s
 
 function main() {
 	update(); // actualizar las variables del juego
@@ -48,6 +50,12 @@ function update() {
 	// actualizar las coords de la cabeza de la serpiente
 	head.x += dx;
 	head.y += dy;
+	// determinamos en qué eje ha ocurrido el último movimiento
+	if (dx !== 0) {
+		lastAxis = 'X';
+	} else if (dy !== 0) {
+		lastAxis = 'Y';
+	}
 
 	// detectar si la serpiente ha consumido el alimento
 	if (food && head.x === food.x && head.y === food.y) {
@@ -59,7 +67,7 @@ function update() {
 
 	// generar el alimente en caso que no exista
 	if (!food) {
-		food = { x: getRandomX(), y: getRandomY() };
+		food = randomFoodPosition();
 	}
 }
 
@@ -96,6 +104,30 @@ function increaseSnakeSize(prevX, prevY) {
 	body.push({
 		x: prevX, y: prevY
 	});
+}
+
+function randomFoodPosition() {
+	let position;
+	do {
+		position = { x: getRandomX(), y: getRandomY() };
+	} while(checkFoodCollision(position));
+	return position;
+}
+
+function checkFoodCollision(position) {
+	// comparar las coordenadas del alimento generado con el cuerpo de la serpiente
+	for (let i=0; i<body.length; ++i) {
+		if (position.x == body[i].x && position.y == body[i].y) {
+			return true;
+		}
+	}
+
+	// comparar las coordenadas del alimento generado con la cabeza de la serpiente
+	if (position.x == head.x && position.y == head.y) {
+		return true;
+	}
+
+	return false;
 }
 
 function getRandomX() {
@@ -137,28 +169,28 @@ function moveSnake(event) {
 	// las condiciones restringen el movimiento sobre el mismo eje
 	switch (event.key) {
 		case 'ArrowUp':
-			if (dy === 0) {
+			if (lastAxis !== 'Y') {
 				dx = 0;
 				dy = -SIZE;
 				console.log('Mover hacia arriba');
 			}
 			break;
 		case 'ArrowDown':
-			if (dy === 0) {
+			if (lastAxis !== 'Y') {
 				dx = 0;
 				dy = +SIZE;
 				console.log('Mover hacia abajo');
 			}
 			break;
 		case 'ArrowRight':
-			if (dx === 0) {
+			if (lastAxis !== 'X') {
 				dx = +SIZE;
 				dy = 0;
 				console.log('Mover hacia la derecha');
 			}
 			break;
 		case 'ArrowLeft':
-			if (dx === 0) {
+			if (lastAxis !== 'X') {
 				dx = -SIZE;	
 				dy = 0;
 				console.log('Mover hacia la izquierda');			
