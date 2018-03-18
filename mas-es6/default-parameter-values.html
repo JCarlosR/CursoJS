@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Parámetros por defecto</title>
+</head>
+<body>
+<script>
+	/*function example(param1) { // ES5
+		if (typeof param1 === 'undefined') {
+			param1 = 'Valor por defecto';
+		}
+		console.log(param1);
+	}*/
+	// ES6
+	function example(param1='Valor por defecto') {
+		console.log(param1);
+	}
+
+	example(5);
+	example('Hola');
+	example();
+	example(null);
+	example(0);
+	example(false);
+</script>
+</body>
+</html>
