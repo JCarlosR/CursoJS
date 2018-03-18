@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Generadores e iteradores</title>
+</head>
+<body>
+<script>
+/*function * contar() {
+	console.log(`En el generador: 1`);
+	yield 'UNO';
+	console.log(`En el generador: 2`);
+	console.log(`En el generador: ${yield 7}`);
+}*/
+/*const iterador = contar();
+const val1 = iterador.next();
+console.log(val1);
+const val2 = iterador.next();
+console.log(val2);
+const val3 = iterador.next('ABC');
+console.log(val3);*/
+
+function * conteoInfinito() {
+	let n = 0;
+	while (true) {
+		yield console.log(n);
+		n = n+1;
+	}	
+}
+const it = conteoInfinito();
+</script>
+</body>
+</html>
