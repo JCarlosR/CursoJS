@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Clases</title>
+</head>
+<body>
+<script>
+	class Mascota {
+		constructor(nombre, edad, raza, tipo) {
+			this.nombre = nombre;
+			this.edad = edad;
+			this.raza = raza;
+			this.tipo = tipo; // Perro o Gato
+		}
+
+		verInfo() {
+			console.log(`Nombre: ${this.nombre}`);
+			console.log(`Edad: ${this.edad}`);
+			console.log(`Raza: ${this.raza}`);
+			console.log(`Tipo de mascota: ${this.tipo}`);
+		}
+	}
+
+	class Perro extends Mascota {
+		constructor(nombre, edad, raza, volumenLadrido) {
+			super(nombre, edad, raza, 'Perro');
+
+			this.volumenLadrido = volumenLadrido;
+		}	
+
+		ladrar() {
+			console.log(`El perro ${this.nombre} ha ladrado con volumen ${this.volumenLadrido}.`);
+		}
+	}
+
+	class Gato extends Mascota {
+		constructor(nombre, edad, raza) {
+			super(nombre, edad, raza, 'Gato');
+		}	
+	}
+
+	let perro1 = new Perro('Rambo', 7, 'Rottweiler', 'muy fuerte');
+	perro1.ladrar();
+	perro1.verInfo();
+
+	let gato1 = new Gato('Apolo', 3, 'Desconocido');
+	gato1.verInfo();
+</script>
+</body>
+</html>

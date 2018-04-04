@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Clases</title>
+</head>
+<body>
+<script>
+	class Perro {
+		constructor(nombre, edad, raza) {
+			this.nombre = nombre;
+			this.edad = edad;
+			this.raza = raza;
+		}
+
+		ladrar() {
+			console.log(`El perro ${this.nombre} ha ladrado.`);
+		}
+	}
+
+	let perro1 = new Perro('Rambo', 7, 'Rottweiler');
+	perro1.ladrar();
+</script>
+</body>
+</html>
