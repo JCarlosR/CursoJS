@@ -4,10 +4,6 @@ export default class {
 		this.y = y;
 	}
 
-	draw() {
-
-	}
-
 	move(dx, dy) {
 		this.x += dx;
 		this.y += dy;
