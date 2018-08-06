@@ -8,7 +8,7 @@ hasta llegar a usar características que han sido integradas en sus últimas ver
 
 A continuación puedes ver una presentación en formato de video de lo que aprenderás en el curso.
 
-[![Curso de JS 2018](https://udemy-images.udemy.com/course/480x270/1452978_f01c_2.jpg)](https://www.youtube.com/watch?v=EXAafsXTefw)
+[![Curso de JS 2018](https://udemy-images.udemy.com/course/750x422/1452978_f01c_2.jpg)](https://www.youtube.com/watch?v=EXAafsXTefw)
 
 ## Contenido
 
