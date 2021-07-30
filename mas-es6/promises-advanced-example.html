@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises Example (Advanced)</title>
+</head>
+<body>
+    
+    <script>
+        const printIn1Sec = (function () {
+
+            function setTimeoutPromise(timeout) {
+                return new Promise(resolve => setTimeout(resolve, 1000));
+            }
+
+            function printIn1Sec(value, promise) {
+                const newPromise = promise
+                    .then(() => setTimeoutPromise(1000))
+                    .then(() => console.log(value));
+
+                return {
+                    printIn1Sec(value) {
+                        return printIn1Sec(value, newPromise);
+                    }
+                };
+            }
+
+            return value => printIn1Sec(value, Promise.resolve());
+        }());
+
+        printIn1Sec(1)
+            .printIn1Sec(2)
+            .printIn1Sec(3);
+    </script>
+</body>
+</html>
