@@ -1,5 +1,5 @@
 export function saludar(nombre) {
-	return `Hola ${nombre}`;
+	return `Hello ${nombre} :)`;
 }
 
 export function despedir(nombre) {

@@ -3,7 +3,6 @@ const path = require('path');
 module.exports = {
 	entry: './src/principal.js',
 	output: {
-      	path: path.resolve(__dirname, 'dist'),
     	filename: 'bundle.js'
   	},
   	module: {
@@ -11,8 +10,6 @@ module.exports = {
 	    { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
 	  ]
 	},
-	serve: {
-		dev: { publicPath: '/dist/' }
-	},
-	mode: 'development'
+	mode: 'development',
+	devtool: 'inline-source-map'
 };
